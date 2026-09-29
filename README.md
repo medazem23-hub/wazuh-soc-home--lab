@@ -55,7 +55,17 @@ Wazuh Rule:
 60122
 
 The event was investigated through the Wazuh Threat Hunting interface.
+3. PowerShell Activity Detection
 
+PowerShell Script Block Logging was enabled on the Windows endpoint and the PowerShell Operational event channel was monitored by Wazuh.
+
+Windows Event ID: 4104
+
+Wazuh Rule: 91843
+
+The event was investigated through the Wazuh Threat Hunting interface.
+
+The detection demonstrated PowerShell activity monitoring and MITRE ATT&CK mappings for PowerShell and Modify Registry.
 ## Skills Demonstrated
 
 Windows Security Monitoring
