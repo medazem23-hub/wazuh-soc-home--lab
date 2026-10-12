@@ -95,6 +95,11 @@ Evidence
 
 43-powershell-event-4104.png
 
+## Analyst Assessment
+
+Event ID 4104 confirms that PowerShell Script Block Logging captured PowerShell activity.
+
+Rule 91843 generated an alert associated with a PowerShell registry modification command. The alert requires contextual analysis and does not, by itself, prove malicious activity.
 Result
 
 PowerShell activity was successfully logged by Windows, collected by the Wazuh Agent, processed by the Wazuh Manager, and detected using Wazuh PowerShell detection rules.
