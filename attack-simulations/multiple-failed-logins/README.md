@@ -37,8 +37,7 @@ Three failed Windows login events were observed in Wazuh Threat Hunting.
 The repeated authentication failures were detected and investigated. Three failures alone do not confirm a brute-force attack; additional context is required.
 ## Result
 
-To be completed after the simulation and investigation.
-
+Three failed login events were detected and investigated in Wazuh. Each event generated a Rule 60122 alert at level 5.
 ## Evidence
 
 Screenshots will be added after the investigation.
