@@ -84,6 +84,9 @@ Alert
 ↓
 Investigation
 
+Analyst Assessment
+
+FIM successfully detected the file modification. However, a file change alone does not prove malicious activity. The analyst should verify whether the modification was authorized.
 Evidence
 
 40-fim-file-modified.png
