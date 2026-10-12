@@ -22,7 +22,19 @@ The analyst will review the event timestamps, targeted account, rule IDs, and al
 ## Analyst Assessment
 
 Repeated authentication failures may indicate suspicious activity, but additional context is required before classifying the activity as a brute-force attack.
+## Investigation Findings
 
+Three failed Windows login events were observed in Wazuh Threat Hunting.
+
+- Agent: `win11-vm`
+- Windows Event ID: `4625`
+- Wazuh Rule ID: `60122`
+- Rule Level: `5`
+- Rule firedtimes: `3`
+
+## Analyst Assessment
+
+The repeated authentication failures were detected and investigated. Three failures alone do not confirm a brute-force attack; additional context is required.
 ## Result
 
 To be completed after the simulation and investigation.
