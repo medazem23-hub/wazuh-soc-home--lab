@@ -6,101 +6,101 @@ A hands-on Wazuh SOC home lab focused on Windows security monitoring, threat det
 
 This project demonstrates the deployment and use of Wazuh as a Security Information and Event Management (SIEM) platform in a virtualized home lab environment.
 
-The lab focuses on collecting Windows security events, detecting suspicious activity, analyzing alerts, and investigating security incidents.
+The lab focuses on collecting Windows security events, detecting suspicious activity, investigating alerts, and analyzing security-related events through the Wazuh dashboard.
 
 ## Lab Environment
 
-Wazuh Server:
-Ubuntu Server 24.04 LTS
-
-Endpoint:
-Windows 11
-
-Wazuh Agent:
-win11-vm
-
-Virtualization:
-Oracle VirtualBox
-
-Network:
-Host-only network
+- Wazuh Server: Ubuntu Server 24.04 LTS
+- Endpoint: Windows 11
+- Wazuh Agent: `win11-vm`
+- Virtualization: Oracle VirtualBox
+- Network: NAT and Host-only networking
 
 ## Architecture
 
+```text
 Windows 11 Endpoint
         |
-        | Wazuh Agent
+        v
+Wazuh Agent
+        |
         v
 Wazuh Server
         |
         v
-Security Events
+Security Event Collection
         |
         v
-Detection and Alerts
+Detection Rules and Alerts
         |
         v
-Investigation
+Threat Hunting and Investigation
+```
 
 ## Detection Scenarios
 
-1. Windows Failed Login
+### 1. Windows Failed Login
 
-A failed Windows authentication attempt was simulated and detected by Wazuh.
+A failed Windows authentication attempt was simulated and investigated through Wazuh.
 
-Windows Security Event ID:
-4625
+- Windows Event ID: `4625`
+- Wazuh Rule ID: `60122`
+- Rule Level: `5`
+- Result: Authentication failure detected and investigated.
 
-Wazuh Rule:
-60122
+Evidence: [Failed Login](attack-simulations/failed-login/)
 
-The event was investigated through the Wazuh Threat Hunting interface.
-3. PowerShell Activity Detection
+### 2. File Integrity Monitoring (FIM)
 
-PowerShell Script Block Logging was enabled on the Windows endpoint and the PowerShell Operational event channel was monitored by Wazuh.
+A monitored Windows test file was modified to verify that Wazuh detects file integrity changes.
 
-Windows Event ID: 4104
+- Monitored directory: `C:\Wazuh-Test`
+- Windows test file: `C:\Wazuh-Test\test.txt`
+- Wazuh Rule ID: `550`
+- Rule Level: `7`
+- Detection: `Integrity checksum changed`
+- Result: File modification detected and investigated.
 
-Wazuh Rule: 91843
+Evidence: [File Integrity Monitoring](attack-simulations/fim/)
 
-The event was investigated through the Wazuh Threat Hunting interface.
+### 3. PowerShell Activity Detection
 
-The detection demonstrated PowerShell activity monitoring and MITRE ATT&CK mappings for PowerShell and Modify Registry.
+PowerShell Script Block Logging was enabled, and the Windows PowerShell Operational event channel was monitored by Wazuh.
+
+- Windows Event ID: `4104`
+- Wazuh Rule ID observed: `91843`
+- Rule Level: `3`
+- Detection: PowerShell activity associated with registry modification.
+- Result: PowerShell logging and Wazuh detection were investigated.
+
+Evidence: [PowerShell Detection](attack-simulations/powershell/)
+
 ## Skills Demonstrated
 
-Windows Security Monitoring
-
-SIEM and Log Analysis
-
-Security Event Investigation
-
-Threat Detection
-
-Wazuh Agent Deployment
-
-Windows Event Logs
-
-MITRE ATT&CK Mapping
-
-Incident Investigation
+- SIEM Deployment and Configuration
+- Windows Security Event Monitoring
+- Wazuh Agent Deployment
+- Threat Hunting
+- Alert Analysis and Investigation
+- File Integrity Monitoring
+- PowerShell Activity Monitoring
+- Windows Event Log Analysis
+- MITRE ATT&CK Mapping
+- Virtualized Lab Networking
 
 ## Project Structure
 
-attack-simulations/
-    failed-login/
-        README.md
-        detection and investigation screenshots
+```text
+wazuh-soc-home--lab/
+├── README.md
+└── attack-simulations/
+    ├── failed-login/
+    ├── fim/
+    └── powershell/
+```
 
-## Future Scenarios
+Each scenario folder contains documentation and supporting evidence.
 
-File Integrity Monitoring
+## Disclaimer
 
-PowerShell Activity Detection
-
-Multiple Failed Login Detection
-
-Suspicious Process Detection
-
-Custom Wazuh Detection Rules
-
-MITRE ATT&CK Based Investigations
+This lab is intended for educational and defensive cybersecurity purposes. All simulations are performed in a controlled virtual environment.
