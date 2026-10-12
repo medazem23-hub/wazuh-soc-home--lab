@@ -42,6 +42,4 @@ To be completed after the simulation and investigation.
 ## Evidence
 
 Screenshots will be added after the investigation.
-## Evidence
-
 - [44-multiple-failed-logins.png](44-multiple-failed-logins.png)
